@@ -112,43 +112,48 @@ export function QRScanner() {
   }
 
   return (
-    <section id="scan" className="py-20 bg-muted/30">
+    <section id="scan" className="py-12 sm:py-16 lg:py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-balance">Scan & Trace Your Herbs</h2>
-          <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
+        <div className="text-center space-y-4 mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-balance">Scan & Trace Your Herbs</h2>
+          <p className="text-base sm:text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
             Simply scan the QR code on your herb package or enter the batch ID to see its complete journey from farm to
             your hands.
           </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <Card className="p-8">
+          <Card className="p-4 sm:p-6 lg:p-8">
             <div className="space-y-6">
               {isScanning ? (
                 <div className="space-y-4">
                   <div className="text-center">
-                    <h3 className="text-xl font-semibold mb-2">Scanning QR Code</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2">Scanning QR Code</h3>
                     <p className="text-muted-foreground mb-4">Point your camera at the QR code</p>
                   </div>
 
                   <div className="relative bg-black rounded-lg overflow-hidden">
-                    <video ref={videoRef} className="w-full h-64 object-cover" playsInline muted />
+                    <video ref={videoRef} className="w-full h-48 sm:h-64 object-cover" playsInline muted />
                     <canvas ref={canvasRef} className="hidden" />
 
                     {/* Scanning overlay */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-48 h-48 border-2 border-primary rounded-lg relative">
-                        <div className="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-primary"></div>
-                        <div className="absolute top-0 right-0 w-6 h-6 border-t-4 border-r-4 border-primary"></div>
-                        <div className="absolute bottom-0 left-0 w-6 h-6 border-b-4 border-l-4 border-primary"></div>
-                        <div className="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-primary"></div>
+                      <div className="w-32 h-32 sm:w-48 sm:h-48 border-2 border-primary rounded-lg relative">
+                        <div className="absolute top-0 left-0 w-4 h-4 sm:w-6 sm:h-6 border-t-4 border-l-4 border-primary"></div>
+                        <div className="absolute top-0 right-0 w-4 h-4 sm:w-6 sm:h-6 border-t-4 border-r-4 border-primary"></div>
+                        <div className="absolute bottom-0 left-0 w-4 h-4 sm:w-6 sm:h-6 border-b-4 border-l-4 border-primary"></div>
+                        <div className="absolute bottom-0 right-0 w-4 h-4 sm:w-6 sm:h-6 border-b-4 border-r-4 border-primary"></div>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex justify-center">
-                    <Button onClick={stopCamera} variant="outline" size="lg">
+                    <Button
+                      onClick={stopCamera}
+                      variant="outline"
+                      size="lg"
+                      className="w-full sm:w-auto bg-transparent"
+                    >
                       <X className="h-4 w-4 mr-2" />
                       Stop Scanning
                     </Button>
@@ -157,15 +162,17 @@ export function QRScanner() {
               ) : (
                 <>
                   <div className="text-center">
-                    <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary/10 mx-auto mb-4">
-                      <QrCode className="h-12 w-12 text-primary" />
+                    <div className="flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-primary/10 mx-auto mb-4">
+                      <QrCode className="h-10 w-10 sm:h-12 sm:w-12 text-primary" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">Scan QR Code</h3>
-                    <p className="text-muted-foreground">Point your camera at the QR code on your herb package</p>
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2">Scan QR Code</h3>
+                    <p className="text-muted-foreground text-sm sm:text-base">
+                      Point your camera at the QR code on your herb package
+                    </p>
                   </div>
 
                   <div className="flex justify-center">
-                    <Button onClick={startCameraScan} size="lg" className="text-base">
+                    <Button onClick={startCameraScan} size="lg" className="text-base w-full sm:w-auto">
                       <Camera className="h-4 w-4 mr-2" />
                       Start Camera Scan
                     </Button>
@@ -195,16 +202,17 @@ export function QRScanner() {
                       <label htmlFor="batch-id" className="text-sm font-medium">
                         Enter Batch ID Manually
                       </label>
-                      <div className="flex gap-2">
+                      <div className="flex flex-col sm:flex-row gap-2">
                         <Input
                           id="batch-id"
-                          placeholder="e.g., AYU-TUL-2024-001"
+                          placeholder="e.g., AYU-TUL-2025-001"
                           value={scannedCode}
                           onChange={(e) => setScannedCode(e.target.value)}
                           className="flex-1"
                         />
-                        <Button type="submit" size="icon">
+                        <Button type="submit" size="icon" className="w-full sm:w-auto">
                           <Search className="h-4 w-4" />
+                          <span className="sm:hidden ml-2">Search</span>
                         </Button>
                       </div>
                     </div>

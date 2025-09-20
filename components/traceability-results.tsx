@@ -126,7 +126,7 @@ const certificateData = {
     },
     verification: {
       blockchainVerified: true,
-      qrCode: "AYU-ORG-2001-2001",
+      qrCode: "AYU-ORG-2501-2001",
     },
     authorization: {
       name: "Dr. Anjali Verma",
@@ -317,17 +317,17 @@ export function TraceabilityResults({ batchId }: TraceabilityResultsProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Header with Progress */}
       <div className="text-center space-y-4">
-        <h3 className="text-2xl font-bold text-primary">{data.herbName}</h3>
-        <p className="text-muted-foreground italic">{data.herbType}</p>
-        <Badge variant="secondary" className="bg-primary/10 text-primary">
+        <h3 className="text-xl sm:text-2xl font-bold text-primary">{data.herbName}</h3>
+        <p className="text-muted-foreground italic text-sm sm:text-base">{data.herbType}</p>
+        <Badge variant="secondary" className="bg-primary/10 text-primary text-xs sm:text-sm">
           {data.status}
         </Badge>
 
         <div className="space-y-2">
-          <div className="flex items-center justify-between text-sm">
+          <div className="flex items-center justify-between text-xs sm:text-sm">
             <span className="text-muted-foreground">Journey Progress</span>
             <span className="font-semibold">{data.completionPercentage}% Complete</span>
           </div>
@@ -337,27 +337,27 @@ export function TraceabilityResults({ batchId }: TraceabilityResultsProps) {
               style={{ width: `${data.completionPercentage}%` }}
             />
           </div>
-          <p className="text-sm text-muted-foreground">4 of 6 stages completed</p>
+          <p className="text-xs sm:text-sm text-muted-foreground">4 of 6 stages completed</p>
         </div>
       </div>
 
       {/* Farmer Info */}
-      <Card className="p-6">
-        <div className="flex items-start gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-            <User className="h-6 w-6 text-primary" />
+      <Card className="p-4 sm:p-6">
+        <div className="flex items-start gap-3 sm:gap-4">
+          <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary/10">
+            <User className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
           </div>
           <div className="flex-1 space-y-2">
-            <h4 className="font-semibold">Grown by {data.farmer.name}</h4>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <MapPin className="h-4 w-4" />
+            <h4 className="font-semibold text-sm sm:text-base">Grown by {data.farmer.name}</h4>
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+              <MapPin className="h-3 w-3 sm:h-4 sm:w-4" />
               {data.farmer.location}
             </div>
-            <div className="flex gap-4 text-sm">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-xs sm:text-sm">
               <span className="text-muted-foreground">
                 Experience: <span className="text-foreground">{data.farmer.experience}</span>
               </span>
-              <Badge variant="outline" className="text-xs">
+              <Badge variant="outline" className="text-xs w-fit">
                 {data.farmer.certification}
               </Badge>
             </div>
@@ -365,9 +365,9 @@ export function TraceabilityResults({ batchId }: TraceabilityResultsProps) {
         </div>
       </Card>
 
-      <Card className="p-6">
-        <h4 className="font-semibold mb-4">Detailed Journey Timeline</h4>
-        <div className="space-y-4">
+      <Card className="p-4 sm:p-6">
+        <h4 className="font-semibold mb-4 text-sm sm:text-base">Detailed Journey Timeline</h4>
+        <div className="space-y-3 sm:space-y-4">
           {data.journey.map((step, index) => {
             const Icon = step.icon
             const isExpanded = expandedStages.includes(index)
@@ -385,18 +385,18 @@ export function TraceabilityResults({ batchId }: TraceabilityResultsProps) {
                   : "bg-muted/50"
 
             return (
-              <div key={index} className="border rounded-lg p-4">
-                <div className="flex gap-4">
+              <div key={index} className="border rounded-lg p-3 sm:p-4">
+                <div className="flex gap-3 sm:gap-4">
                   <div className="flex flex-col items-center">
-                    <div className={`flex h-10 w-10 items-center justify-center rounded-full ${bgColor}`}>
-                      <Icon className={`h-5 w-5 ${statusColor}`} />
+                    <div className={`flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full ${bgColor}`}>
+                      <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${statusColor}`} />
                     </div>
-                    {index < data.journey.length - 1 && <div className="w-px h-8 bg-border mt-2" />}
+                    {index < data.journey.length - 1 && <div className="w-px h-6 sm:h-8 bg-border mt-2" />}
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <h5 className="font-medium">{step.stage}</h5>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between mb-2 gap-2">
+                      <div className="flex flex-wrap items-center gap-1 sm:gap-2 min-w-0">
+                        <h5 className="font-medium text-sm sm:text-base truncate">{step.stage}</h5>
                         <Badge
                           variant={
                             step.status === "completed"
@@ -421,13 +421,17 @@ export function TraceabilityResults({ batchId }: TraceabilityResultsProps) {
                         variant="ghost"
                         size="sm"
                         onClick={() => toggleStageExpansion(index)}
-                        className="h-8 w-8 p-0"
+                        className="h-6 w-6 sm:h-8 sm:w-8 p-0 flex-shrink-0"
                       >
-                        {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                        {isExpanded ? (
+                          <ChevronUp className="h-3 w-3 sm:h-4 sm:w-4" />
+                        ) : (
+                          <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
+                        )}
                       </Button>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-1">{step.location}</p>
-                    <p className="text-sm">{step.details}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-1">{step.location}</p>
+                    <p className="text-xs sm:text-sm">{step.details}</p>
 
                     {step.certificate && step.status === "completed" && (
                       <div className="mt-3">
@@ -435,7 +439,7 @@ export function TraceabilityResults({ batchId }: TraceabilityResultsProps) {
                           variant="outline"
                           size="sm"
                           onClick={() => viewCertificate(step.stage)}
-                          className="text-xs"
+                          className="text-xs w-full sm:w-auto"
                         >
                           <FileText className="h-3 w-3 mr-1" />
                           View {step.certificate}
@@ -446,11 +450,11 @@ export function TraceabilityResults({ batchId }: TraceabilityResultsProps) {
                     {/* Expanded Details */}
                     {isExpanded && Object.keys(step.additionalInfo).length > 0 && (
                       <div className="mt-4 p-3 bg-muted/50 rounded-lg">
-                        <h6 className="text-sm font-medium mb-2">Additional Details:</h6>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                        <h6 className="text-xs sm:text-sm font-medium mb-2">Additional Details:</h6>
+                        <div className="grid grid-cols-1 gap-2 text-xs sm:text-sm">
                           {Object.entries(step.additionalInfo).map(([key, value]) => (
-                            <div key={key} className="flex justify-between">
-                              <span className="text-muted-foreground">{key}:</span>
+                            <div key={key} className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                              <span className="text-muted-foreground font-medium">{key}:</span>
                               <span className="font-medium">{value}</span>
                             </div>
                           ))}
@@ -466,29 +470,30 @@ export function TraceabilityResults({ batchId }: TraceabilityResultsProps) {
       </Card>
 
       {/* Quality Metrics */}
-      <Card className="p-6">
-        <h4 className="font-semibold mb-4">Quality Metrics</h4>
-        <div className="grid grid-cols-2 gap-4">
+      <Card className="p-4 sm:p-6">
+        <h4 className="font-semibold mb-4 text-sm sm:text-base">Quality Metrics</h4>
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           <div className="space-y-1">
-            <p className="text-sm text-muted-foreground">Curcumin Content</p>
-            <p className="font-semibold text-primary">{data.quality.curcumin}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">Curcumin Content</p>
+            <p className="font-semibold text-primary text-sm sm:text-base">{data.quality.curcumin}</p>
           </div>
           <div className="space-y-1">
-            <p className="text-sm text-muted-foreground">Moisture Level</p>
-            <p className="font-semibold">{data.quality.moisture}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">Moisture Level</p>
+            <p className="font-semibold text-sm sm:text-base">{data.quality.moisture}</p>
           </div>
           <div className="space-y-1">
-            <p className="text-sm text-muted-foreground">Purity</p>
-            <p className="font-semibold text-primary">{data.quality.purity}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">Purity</p>
+            <p className="font-semibold text-primary text-sm sm:text-base">{data.quality.purity}</p>
           </div>
           <div className="space-y-1">
-            <p className="text-sm text-muted-foreground">Pesticides</p>
-            <p className="font-semibold text-secondary">{data.quality.pesticides}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">Pesticides</p>
+            <p className="font-semibold text-secondary text-sm sm:text-base">{data.quality.pesticides}</p>
           </div>
         </div>
       </Card>
 
-      <div className="flex gap-3">
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row gap-3">
         <Button className="flex-1" onClick={viewSoilCertificate}>
           <FileText className="mr-2 h-4 w-4" />
           View Soil Certificate
@@ -501,25 +506,25 @@ export function TraceabilityResults({ batchId }: TraceabilityResultsProps) {
 
       {/* Contact Farmer Modal */}
       <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md mx-4">
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">
+            <DialogTitle className="flex items-center gap-2 text-base sm:text-lg">
               <User className="h-5 w-5 text-primary" />
               Contact Farmer
             </DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
-            <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <User className="h-6 w-6 text-primary" />
+            <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-muted/50 rounded-lg">
+              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary/10">
+                <User className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
               </div>
               <div className="space-y-1">
-                <h4 className="font-semibold">Rajesh Kumar</h4>
-                <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                <h4 className="font-semibold text-sm sm:text-base">Rajesh Kumar</h4>
+                <div className="flex items-center gap-1 text-xs sm:text-sm text-muted-foreground">
                   <MapPin className="h-3 w-3" />
                   Wayanad, Kerala
                 </div>
-                <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                <div className="flex items-center gap-1 text-xs sm:text-sm text-muted-foreground">
                   <Phone className="h-3 w-3" />
                   +91 9XXX5X1XX3
                 </div>
@@ -527,18 +532,18 @@ export function TraceabilityResults({ batchId }: TraceabilityResultsProps) {
             </div>
 
             <div className="space-y-2">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 <strong>Experience:</strong> 15 years in organic farming
               </p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 <strong>Certification:</strong> Organic Certified
               </p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 <strong>Farm:</strong> Wayanad Organics Collective
               </p>
             </div>
 
-            <div className="flex gap-2 pt-2">
+            <div className="flex flex-col sm:flex-row gap-2 pt-2">
               <Button className="flex-1" size="sm">
                 <Phone className="mr-2 h-4 w-4" />
                 Call Now

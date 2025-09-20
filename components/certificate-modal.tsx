@@ -61,32 +61,32 @@ export function CertificateModal({ isOpen, onClose, certificate }: CertificateMo
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto mx-4 sm:mx-auto">
         <DialogHeader>
           <div className="text-center space-y-2">
             <div className="flex items-center justify-center gap-2 text-primary">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm">A</span>
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-xs sm:text-sm">A</span>
               </div>
-              <span className="text-xl font-bold">AyuTrace</span>
+              <span className="text-lg sm:text-xl font-bold">AyuTrace</span>
             </div>
-            <p className="text-sm text-muted-foreground">Immutable Purity & Provenance</p>
-            <DialogTitle className="text-lg font-semibold text-primary">{certificate.type}</DialogTitle>
+            <p className="text-xs sm:text-sm text-muted-foreground">Immutable Purity & Provenance</p>
+            <DialogTitle className="text-base sm:text-lg font-semibold text-primary">{certificate.type}</DialogTitle>
           </div>
         </DialogHeader>
 
-        <div className="space-y-6 p-4 border rounded-lg bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="space-y-4 sm:space-y-6 p-3 sm:p-4 border rounded-lg bg-gradient-to-br from-green-50 to-emerald-50">
           {/* Certificate Header */}
           <div className="text-center space-y-2">
-            <div className="flex justify-between text-sm">
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-xs sm:text-sm">
               <span>
-                CERTIFICATE ID: <strong>{certificate.id}</strong>
+                CERTIFICATE ID: <strong className="break-all">{certificate.id}</strong>
               </span>
               <span>
                 ISSUE DATE: <strong>{certificate.issueDate}</strong>
               </span>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               This document certifies that the batch detailed below was processed in accordance with AyuTrace's quality
               and traceability standards.
             </p>
@@ -94,8 +94,8 @@ export function CertificateModal({ isOpen, onClose, certificate }: CertificateMo
 
           {/* Product Details */}
           <div className="space-y-3">
-            <h4 className="font-semibold text-primary">PRODUCT DETAILS</h4>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <h4 className="font-semibold text-primary text-sm sm:text-base">PRODUCT DETAILS</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
               <div>
                 <span className="text-muted-foreground">Product Name:</span>
                 <p className="font-medium">{certificate.productName}</p>
@@ -112,7 +112,7 @@ export function CertificateModal({ isOpen, onClose, certificate }: CertificateMo
                 <span className="text-muted-foreground">Result:</span>
                 <Badge
                   variant={certificate.result === "PASS" || certificate.result === "APPROVED" ? "default" : "secondary"}
-                  className={certificate.result === "PASS" || certificate.result === "APPROVED" ? "bg-green-600" : ""}
+                  className={`text-xs ${certificate.result === "PASS" || certificate.result === "APPROVED" ? "bg-green-600" : ""}`}
                 >
                   {certificate.result}
                 </Badge>
@@ -122,12 +122,15 @@ export function CertificateModal({ isOpen, onClose, certificate }: CertificateMo
 
           {/* Certificate Specific Details */}
           <div className="space-y-3">
-            <h4 className="font-semibold text-primary">DETAILS & PARAMETERS</h4>
-            <div className="grid grid-cols-1 gap-2 text-sm">
+            <h4 className="font-semibold text-primary text-sm sm:text-base">DETAILS & PARAMETERS</h4>
+            <div className="grid grid-cols-1 gap-2 text-xs sm:text-sm">
               {Object.entries(certificate.details).map(([key, value]) => (
-                <div key={key} className="flex justify-between py-1 border-b border-muted">
-                  <span className="text-muted-foreground">{key}:</span>
-                  <span className="font-medium">{value}</span>
+                <div
+                  key={key}
+                  className="flex flex-col sm:flex-row sm:justify-between gap-1 py-1 border-b border-muted"
+                >
+                  <span className="text-muted-foreground font-medium">{key}:</span>
+                  <span className="font-medium break-words">{value}</span>
                 </div>
               ))}
             </div>
@@ -135,9 +138,9 @@ export function CertificateModal({ isOpen, onClose, certificate }: CertificateMo
 
           {/* Verification */}
           <div className="space-y-3">
-            <h4 className="font-semibold text-primary">VERIFICATION</h4>
+            <h4 className="font-semibold text-primary text-sm sm:text-base">VERIFICATION</h4>
             <div className="flex items-center gap-2">
-              <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+              <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200 text-xs">
                 ✓ Blockchain Verified
               </Badge>
             </div>
@@ -145,28 +148,28 @@ export function CertificateModal({ isOpen, onClose, certificate }: CertificateMo
               This certificate and its associated data are cryptographically secured on AyuTrace ledger. The information
               cannot be altered.
             </p>
-            <div className="flex items-center gap-2 text-xs">
-              <ExternalLink className="h-3 w-3" />
+            <div className="flex items-start gap-2 text-xs">
+              <ExternalLink className="h-3 w-3 mt-0.5 flex-shrink-0" />
               <span>Scan QR code to view complete journey of batch {certificate.batchId}</span>
             </div>
           </div>
 
           {/* Authorization */}
           <div className="space-y-2">
-            <h4 className="font-semibold text-primary">AUTHORIZATION</h4>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-8 bg-muted rounded flex items-center justify-center text-xs font-bold">
+            <h4 className="font-semibold text-primary text-sm sm:text-base">AUTHORIZATION</h4>
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="w-10 h-6 sm:w-12 sm:h-8 bg-muted rounded flex items-center justify-center text-xs font-bold flex-shrink-0">
                 {certificate.authorization.signature}
               </div>
-              <div>
-                <p className="font-medium text-sm">{certificate.authorization.name}</p>
-                <p className="text-xs text-muted-foreground">{certificate.authorization.title}</p>
+              <div className="min-w-0">
+                <p className="font-medium text-xs sm:text-sm">{certificate.authorization.name}</p>
+                <p className="text-xs text-muted-foreground break-words">{certificate.authorization.title}</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="flex gap-3 pt-4">
+        <div className="flex flex-col sm:flex-row gap-3 pt-4">
           <Button onClick={downloadCertificate} className="flex-1">
             <Download className="mr-2 h-4 w-4" />
             Download Certificate
