@@ -26,25 +26,25 @@ interface TraceabilityResultsProps {
 
 const certificateData = {
   "Farmer Harvest": {
-    id: "CERT-HARV-8A3B-2024015",
+    id: "CERT-HARV-8A3B-2025015",
     type: "Certificate of Farmer Harvest",
-    issueDate: "2024-01-15",
+    issueDate: "2025-01-15",
     productName: "Organic Turmeric",
     botanicalName: "Curcuma longa",
-    batchId: "AYU-TUL-2024-001",
+    batchId: "AYU-TUL-2025-001",
     result: "APPROVED",
     details: {
       "Farmer Name": "Rajesh Kumar (15 years experience)",
       "Farm Location": "Wayanad Organics, Kerala, India",
       Coordinates: "11.6854, 76.1320",
-      "Certification Body": "IND-ORG-2401-118",
+      "Certification Body": "IND-ORG-2501-118",
       "Harvest Method": "Hand-picked at optimal maturity during early morning hours",
       "Quality Indicators": "Size, color, and maturity indicators verified",
       "Data Logging": "Real-time logging for data integrity",
     },
     verification: {
       blockchainVerified: true,
-      qrCode: "AYU-ORG-2401-2001",
+      qrCode: "AYU-ORG-2501-2001",
     },
     authorization: {
       name: "Dr. Anjali Verma",
@@ -53,25 +53,25 @@ const certificateData = {
     },
   },
   "Supply to Lab": {
-    id: "CERT-HARV-943B-2024-202416",
+    id: "CERT-HARV-943B-2025-202416",
     type: "Certificate of Transport",
-    issueDate: "2024-01-16",
+    issueDate: "2025-01-16",
     productName: "Organic Turmeric",
     botanicalName: "Curcuma longa",
-    batchId: "AYU-TUL-2024-001",
+    batchId: "AYU-TUL-2025-001",
     result: "COMPLETED",
     details: {
       Transporter: "Kerala AgriLogistics (Vehicle ID KL-86-BQ-5541)",
       Route: "Wayanad Organics, Kerala to Ayurvedic Quality Lab, Kochi, Kerala",
-      "Dispatched On": "2024-01-16 08:00:00 UTC",
-      "Expected Delivery": "2024-01-16 14:00:00 UTC",
+      "Dispatched On": "2025-01-16 08:00:00 UTC",
+      "Expected Delivery": "2025-01-16 14:00:00 UTC",
       "Transport Method": "Temperature-controlled transport maintaining 18-22°C",
       "GPS Tracking": "Enabled throughout the journey",
       "Container Security": "Sealed containers to prevent contamination",
     },
     verification: {
       blockchainVerified: true,
-      qrCode: "AYU-ORG-2401-2001",
+      qrCode: "AYU-ORG-2501-2001",
     },
     authorization: {
       name: "Dr. Anjali Verma",
@@ -80,12 +80,12 @@ const certificateData = {
     },
   },
   "Lab Research & Testing": {
-    id: "CERT-HARV-8A3B-20240319",
+    id: "CERT-HARV-8A3B-20250319",
     type: "Certificate of Lab Analysis",
-    issueDate: "2024-01-18",
+    issueDate: "2025-01-18",
     productName: "Organic Turmeric",
     botanicalName: "Curcuma longa",
-    batchId: "AYU-TUL-2024-001",
+    batchId: "AYU-TUL-2025-001",
     result: "PASS",
     details: {
       "Testing Lab": "Kerala Ayurvedic Quality Lab",
@@ -99,7 +99,7 @@ const certificateData = {
     },
     verification: {
       blockchainVerified: true,
-      qrCode: "AYU-ORG-2401-2001",
+      qrCode: "AYU-ORG-2501-2001",
     },
     authorization: {
       name: "Dr. Anjali Verma",
@@ -108,12 +108,12 @@ const certificateData = {
     },
   },
   "Results & Quality Approval": {
-    id: "CERT-HARV-444S-2024-202419",
+    id: "CERT-HARV-444S-2025-202419",
     type: "Certificate of Quality Approval",
-    issueDate: "2024-01-19",
+    issueDate: "2025-01-19",
     productName: "Organic Turmeric",
     botanicalName: "Curcuma longa",
-    batchId: "AYU-TUL-2024-001",
+    batchId: "AYU-TUL-2025-001",
     result: "APPROVED",
     details: {
       "Quality Grade": "Premium A+",
@@ -135,12 +135,12 @@ const certificateData = {
     },
   },
   "Soil Analysis": {
-    id: "CERT-SOIL-F6G7-2023805",
+    id: "CERT-SOIL-F6G7-2024805",
     type: "Certificate of Soil Analysis",
-    issueDate: "2023-08-05",
+    issueDate: "2024-08-05",
     productName: "Farm Soil Analysis",
     botanicalName: "Curcuma longa cultivation",
-    batchId: "AYU-TUL-2024-001",
+    batchId: "AYU-TUL-2025-001",
     result: "OPTIMAL",
     details: {
       "Farm Name": "Wayanad Organics Collective",
@@ -156,7 +156,7 @@ const certificateData = {
     },
     verification: {
       blockchainVerified: true,
-      qrCode: "AYU-ORG-2401-2001",
+      qrCode: "AYU-ORG-2501-2001",
     },
     authorization: {
       name: "Dr. Anjali Verma",
@@ -168,7 +168,7 @@ const certificateData = {
 
 // Mock data for demonstration
 const mockData = {
-  "AYU-TUL-2024-001": {
+  "AYU-TUL-2025-001": {
     herbName: "Organic Turmeric",
     herbType: "Curcuma longa",
     status: "In Transit to Consumer",
@@ -182,7 +182,7 @@ const mockData = {
     journey: [
       {
         stage: "Farmer Harvest",
-        date: "2024-01-15",
+        date: "2025-01-15",
         location: "Organic Farm, Wayanad",
         status: "completed",
         details:
@@ -193,12 +193,12 @@ const mockData = {
           "Harvest Method": "Hand-picked",
           "Weather Conditions": "Sunny, 28°C",
           "Soil pH": "6.2",
-          "Organic Certification": "Valid until Dec 2024",
+          "Organic Certification": "Valid until Dec 2025",
         },
       },
       {
         stage: "Supply to Lab",
-        date: "2024-01-16",
+        date: "2025-01-16",
         location: "Transport to Quality Lab, Kochi",
         status: "completed",
         details: "Temperature-controlled transport maintaining 18-22°C. GPS tracking enabled throughout the journey.",
@@ -213,7 +213,7 @@ const mockData = {
       },
       {
         stage: "Lab Research & Testing",
-        date: "2024-01-18",
+        date: "2025-01-18",
         location: "Ayurvedic Quality Lab, Kochi",
         status: "completed",
         details:
@@ -229,7 +229,7 @@ const mockData = {
       },
       {
         stage: "Results & Quality Approval",
-        date: "2024-01-19",
+        date: "2025-01-19",
         location: "Quality Assurance Department",
         status: "completed",
         details: "All quality parameters meet Ayurvedic standards. Product approved for consumer distribution.",
@@ -244,7 +244,7 @@ const mockData = {
       },
       {
         stage: "Supply to Consumer",
-        date: "2024-01-20",
+        date: "2025-01-20",
         location: "Distribution Center, Bangalore",
         status: "in-progress",
         details: "Package prepared and dispatched. Currently in transit via express delivery service.",
@@ -252,14 +252,14 @@ const mockData = {
         certificate: null,
         additionalInfo: {
           "Tracking ID": "AYU123456789",
-          "Expected Delivery": "2024-01-22",
+          "Expected Delivery": "2025-01-22",
           "Delivery Partner": "Express Herbs Delivery",
           "Current Location": "Bangalore Hub",
         },
       },
       {
         stage: "Consumer Received",
-        date: "Expected: 2024-01-22",
+        date: "Expected: 2025-01-22",
         location: "Your Location",
         status: "pending",
         details: "Awaiting delivery confirmation from consumer.",

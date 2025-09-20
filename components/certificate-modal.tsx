@@ -31,16 +31,32 @@ interface CertificateModalProps {
   certificate: CertificateData | null
 }
 
+const certificateDownloadLinks: Record<string, string> = {
+  "Certificate of Farmer Harvest": "https://drive.google.com/uc?export=download&id=1OrKAFOjY_G-tHxRjSfhQfyGPFFH64g_j",
+  "Certificate of Transport": "https://drive.google.com/uc?export=download&id=1n7pEVJw2OVDSXv7uXwVR_NZ5kEwqg8TI",
+  "Certificate of Lab Analysis": "https://drive.google.com/uc?export=download&id=1JU5p83FhcTwgNBcK0WmlwB8J6TXZkXBb",
+  "Certificate of Quality Approval": "https://drive.google.com/uc?export=download&id=1A1UJel5xyWBBBJGYpHS4gb8PdFFJtjzf",
+  "Certificate of Soil Analysis": "https://drive.google.com/uc?export=download&id=1kPWDwRsuY0cE93XBF0ZgAbuqxj34CiO4",
+}
+
 export function CertificateModal({ isOpen, onClose, certificate }: CertificateModalProps) {
   if (!certificate) return null
 
   const downloadCertificate = () => {
-    // Simulate PDF download
-    const link = document.createElement("a")
-    link.href = "#"
-    link.download = `${certificate.type.replace(/\s+/g, "_")}_${certificate.batchId}.pdf`
-    link.click()
-    alert(`Downloading ${certificate.type} certificate`)
+    const downloadUrl = certificateDownloadLinks[certificate.type]
+    if (downloadUrl) {
+      // Create a temporary link element and trigger download
+      const link = document.createElement("a")
+      link.href = downloadUrl
+      link.target = "_blank"
+      link.rel = "noopener noreferrer"
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    } else {
+      // Fallback for certificates without Google Drive links
+      alert(`Downloading ${certificate.type} certificate`)
+    }
   }
 
   return (
