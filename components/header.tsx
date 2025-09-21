@@ -2,10 +2,23 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Leaf, Menu, X } from "lucide-react"
+import { Leaf, Menu, X, LogOut, ToggleLeft, ToggleRight } from "lucide-react"
+import { useAuth } from "@/lib/auth-context"
+import Link from "next/link"
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [viewMode, setViewMode] = useState<"consumer" | "dashboard">("consumer")
+  const { user, logout, isLoggedIn } = useAuth()
+
+  const handleLogout = () => {
+    logout()
+    setViewMode("consumer")
+  }
+
+  const toggleViewMode = () => {
+    setViewMode(viewMode === "consumer" ? "dashboard" : "consumer")
+  }
 
   return (
     <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -48,10 +61,40 @@ export function Header() {
 
           {/* Desktop Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline" size="sm" className="bg-transparent">
-              For Farmers
-            </Button>
-            <Button size="sm">Get Started</Button>
+            {isLoggedIn && user ? (
+              <div className="flex items-center gap-4">
+                {user.role === "farmer" && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-muted-foreground">Consumer View</span>
+                    <Button variant="ghost" size="sm" onClick={toggleViewMode} className="p-1">
+                      {viewMode === "consumer" ? (
+                        <ToggleLeft className="h-5 w-5" />
+                      ) : (
+                        <ToggleRight className="h-5 w-5 text-primary" />
+                      )}
+                    </Button>
+                    <span className="text-sm text-muted-foreground">Farmer Dashboard</span>
+                  </div>
+                )}
+                <span className="text-sm font-medium">Welcome, {user.name}</span>
+                <Button variant="outline" size="sm" onClick={handleLogout}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Button variant="outline" size="sm" className="bg-transparent">
+                  For Farmers
+                </Button>
+                <Button size="sm">Get Started</Button>
+                <Link href="/login">
+                  <Button variant="default" size="sm">
+                    Login
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,10 +141,40 @@ export function Header() {
                 About
               </a>
               <div className="flex flex-col gap-3 pt-4 border-t border-border">
-                <Button variant="outline" size="sm" className="bg-transparent">
-                  For Farmers
-                </Button>
-                <Button size="sm">Get Started</Button>
+                {isLoggedIn && user ? (
+                  <>
+                    {user.role === "farmer" && (
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-muted-foreground">View Mode:</span>
+                        <Button variant="ghost" size="sm" onClick={toggleViewMode} className="flex items-center gap-2">
+                          {viewMode === "consumer" ? "Consumer" : "Dashboard"}
+                          {viewMode === "consumer" ? (
+                            <ToggleLeft className="h-4 w-4" />
+                          ) : (
+                            <ToggleRight className="h-4 w-4 text-primary" />
+                          )}
+                        </Button>
+                      </div>
+                    )}
+                    <div className="text-sm font-medium">Welcome, {user.name}</div>
+                    <Button variant="outline" size="sm" onClick={handleLogout}>
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Logout
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button variant="outline" size="sm" className="bg-transparent">
+                      For Farmers
+                    </Button>
+                    <Button size="sm">Get Started</Button>
+                    <Link href="/login">
+                      <Button variant="default" size="sm" className="w-full">
+                        Login
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </nav>
           </div>

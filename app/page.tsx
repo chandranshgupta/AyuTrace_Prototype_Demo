@@ -1,3 +1,5 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { QRScanner } from "@/components/qr-scanner"
