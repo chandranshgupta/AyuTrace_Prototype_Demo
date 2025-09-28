@@ -12,6 +12,28 @@ Check out the live interactive prototype hosted on Vercel:
 
 **[https://ayur-tracedemo.vercel.app](https://ayur-tracedemo.vercel.app)** 
 
+#### **How to Use the Demo:**
+
+To explore the different views, please use the following sample data:
+
+* **For the Public Consumer View:**
+    On the "Scan QR" page, enter the Batch ID: **`AYU-TUL-2025-001`**
+
+* **To Access the Stakeholder Portals:**
+    Use these pre-defined credentials on the **Login Page**:
+    * **Farmer:**
+        * Email: `farmer@demo.com`
+        * Password: `123`
+    * **Lab Analyst:**
+        * Email: `lab@demo.com`
+        * Password: `123`
+    * **Logistics Partner:**
+        * Email: `logistics@demo.com`
+        * Password: `123`
+
+*(Once logged in, you can use a Batch ID like `AT001` inside the Lab or Logistics dashboards.)*
+
+
 -----
 
 ## ✨ **Key Features & Innovations**
