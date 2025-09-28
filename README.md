@@ -1,4 +1,4 @@
-# **AyuTrace: Ayurvedic Herb Traceability Prototype**
+<img width="274" height="147" alt="image" src="https://github.com/user-attachments/assets/e3d9e7ed-be92-43ae-a273-d6f119ad28f7" /># **AyuTrace: Ayurvedic Herb Traceability Prototype**
 
 [](https://www.google.com/search?q=https://github.com/chandranshgupta/AyuTrace_Prototype_Demo)
 [](https://nextjs.org/)
@@ -150,7 +150,7 @@ This repository contains the **high-fidelity, interactive prototype** for the Ay
 
 -----
 
-## 👥 **Team Trailblazer**
+## 👥 **Team Trailblazer07**
 
   * **Chandransh Gupta** - *Team Lead & DevOps/QA Engineer*
   * **Subhrojyoti Kar Chowdhury** - *Blockchain Architect*
