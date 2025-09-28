@@ -1,4 +1,4 @@
-**AyuTrace: Ayurvedic Herb Traceability Prototype**
+# **AyuTrace: Ayurvedic Herb Traceability Prototype**
 
 [](https://www.google.com/search?q=https://github.com/chandranshgupta/AyuTrace_Prototype_Demo)
 [](https://nextjs.org/)
@@ -67,7 +67,8 @@ Here's a look at the live prototype's user interface.
 
 *The complete, end-to-end traceability report that a consumer sees after scanning a QR code.*
 
-<img width="1856" height="6322" alt="image" src="https://github.com/user-attachments/assets/750c22e6-75da-4403-844f-2106441d166f" />
+<img width="545" height="976" alt="image" src="https://github.com/user-attachments/assets/1b2f6202-3578-4550-a007-b63e6391afdc" />
+
 
 
 -----
