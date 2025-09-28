@@ -1,4 +1,4 @@
-# **AyuTrace: Ayurvedic Herb Traceability Prototype**
+<img width="630" height="628" alt="image" src="https://github.com/user-attachments/assets/8d91f4e2-29a1-4fb4-ba76-f1ee0676c79e" /># **AyuTrace: Ayurvedic Herb Traceability Prototype**
 
 [](https://www.google.com/search?q=https://github.com/chandranshgupta/AyuTrace_Prototype_Demo)
 [](https://nextjs.org/)
@@ -33,13 +33,41 @@ Here's a look at the live prototype's user interface.
 
 *Our clean landing page and the start of the verification process.*
 
+<img width="1015" height="923" alt="image" src="https://github.com/user-attachments/assets/cbb5f873-e89e-420e-845a-9feabe375e43" />
+<img width="1221" height="641" alt="image" src="https://github.com/user-attachments/assets/a9680f51-0a48-410a-9ab2-e68c65368113" />
+
+
+#### **Proof of Verification & Certificate**
+
+<img width="677" height="959" alt="image" src="https://github.com/user-attachments/assets/f2a685f5-27f5-4d35-9432-609587bcab6d" />
+<img width="630" height="628" alt="image" src="https://github.com/user-attachments/assets/d134b411-56fb-4be7-a080-578aed02e2bb" />
+
 ### **Farmer Dashboard**
 
 *The simple, intuitive dashboard for farmers to log and manage their harvests.*
 
+<img width="1321" height="769" alt="image" src="https://github.com/user-attachments/assets/3dc05848-7c01-44cc-8268-e81a606781e8" />
+
+### **Lab Analyst Portal**
+
+*A secure, tool-like interface for lab analysts to submit test results and certify herb quality.*
+
+<img width="1388" height="911" alt="image" src="https://github.com/user-attachments/assets/882fd450-1853-4036-ac47-8e67ac1c01aa" />
+
+
+### **Logistics Partner Portal**
+
+*A minimal, 'scan-and-go' interface for aggregators to instantly record custody transfers on the move.*
+
+<img width="1399" height="743" alt="image" src="https://github.com/user-attachments/assets/e9015adc-0152-4e57-a170-993300032984" />
+
+
 ### **Detailed Journey Timeline**
 
 *The complete, end-to-end traceability report that a consumer sees after scanning a QR code.*
+
+<img width="1856" height="6322" alt="image" src="https://github.com/user-attachments/assets/750c22e6-75da-4403-844f-2106441d166f" />
+
 
 -----
 
