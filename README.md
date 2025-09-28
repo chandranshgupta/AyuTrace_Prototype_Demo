@@ -1,5 +1,3 @@
-<img width="274" height="147" alt="image" src="https://github.com/user-attachments/assets/e3d9e7ed-be92-43ae-a273-d6f119ad28f7" /># **AyuTrace: Ayurvedic Herb Traceability Prototype**
-
 [](https://www.google.com/search?q=https://github.com/chandranshgupta/AyuTrace_Prototype_Demo)
 [](https://nextjs.org/)
 [](LICENSE.md)
