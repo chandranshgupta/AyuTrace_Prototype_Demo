@@ -1,4 +1,4 @@
-<img width="630" height="628" alt="image" src="https://github.com/user-attachments/assets/8d91f4e2-29a1-4fb4-ba76-f1ee0676c79e" /># **AyuTrace: Ayurvedic Herb Traceability Prototype**
+**AyuTrace: Ayurvedic Herb Traceability Prototype**
 
 [](https://www.google.com/search?q=https://github.com/chandranshgupta/AyuTrace_Prototype_Demo)
 [](https://nextjs.org/)
@@ -53,6 +53,7 @@ Here's a look at the live prototype's user interface.
 *A secure, tool-like interface for lab analysts to submit test results and certify herb quality.*
 
 <img width="1388" height="911" alt="image" src="https://github.com/user-attachments/assets/882fd450-1853-4036-ac47-8e67ac1c01aa" />
+
 
 
 ### **Logistics Partner Portal**
